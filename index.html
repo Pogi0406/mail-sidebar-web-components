@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="customSidebarButton.js" defer></script>
+    <title>Gmail sidebar</title>
+  </head>
+  <body>
+    <header>
+      <div class="header__container">
+        <div class="header__hamburgerMenu tooltip">
+          <span class="tooltiptext">Main menu</span>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <span>📬 Mail App</span>
+      </div>
+    </header>
+    <div class="compose">
+      <div class="compose__button">
+        <button><span>📬</span>Compose</button>
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="sidebar__option sidebar__option_active">
+        <span>📥</span>
+        <span class="text">Inbox</span>
+      </div>
+      <div class="sidebar__option">
+        <span>⭐️</span>
+        <span class="text">Starred</span>
+      </div>
+      <div class="sidebar__option">
+        <span>⏱</span>
+        <span class="text">Snoozed</span>
+      </div>
+      <div class="sidebar__option">
+        <span>➡️</span>
+        <span class="text">Sent</span>
+      </div>
+      <app-sidebar-button text="Drafts" unreadCount="1">
+        <slot slot="icon">📄</slot>
+      </app-sidebar-button>
+    </div>
+  </body>
+</html>
+
+<!-- Just a comment from my side... probably I should use buttons for the sidebar, but in this case(since we don't have any functionality)
+I used div with span-s inside. -->
