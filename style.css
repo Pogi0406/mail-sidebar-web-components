@@ -92,25 +92,3 @@ body {
   margin-top: 1.5rem;
   max-width: 15rem;
 }
-
-.sidebar__option {
-  padding-left: 1.7rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  border-top-right-radius: 1.3rem;
-  border-bottom-right-radius: 1.3rem;
-  cursor: pointer;
-}
-
-.sidebar__option .text {
-  margin-left: 1rem;
-}
-
-.sidebar__option_active {
-  background-color: #d3e3fd;
-  font-weight: bold;
-}
-
-.sidebar__option:hover:not(.sidebar__option_active) {
-  background-color: #eaeaed;
-}

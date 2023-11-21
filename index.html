@@ -25,28 +25,21 @@
       </div>
     </div>
     <div class="sidebar">
-      <div class="sidebar__option sidebar__option_active">
-        <span>📥</span>
-        <span class="text">Inbox</span>
-      </div>
-      <div class="sidebar__option">
-        <span>⭐️</span>
-        <span class="text">Starred</span>
-      </div>
-      <div class="sidebar__option">
-        <span>⏱</span>
-        <span class="text">Snoozed</span>
-      </div>
-      <div class="sidebar__option">
-        <span>➡️</span>
-        <span class="text">Sent</span>
-      </div>
+      <app-sidebar-button text="Inbox" unreadCount="0" class="active">
+        <slot slot="icon">📥</slot>
+      </app-sidebar-button>
+      <app-sidebar-button text="Starred" unreadCount="0">
+        <slot slot="icon">⭐️</slot>
+      </app-sidebar-button>
+      <app-sidebar-button text="Snoozed" unreadCount="0">
+        <slot slot="icon">⏱</slot>
+      </app-sidebar-button>
+      <app-sidebar-button text="Sent" unreadCount="0">
+        <slot slot="icon">➡️</slot>
+      </app-sidebar-button>
       <app-sidebar-button text="Drafts" unreadCount="1">
         <slot slot="icon">📄</slot>
       </app-sidebar-button>
     </div>
   </body>
 </html>
-
-<!-- Just a comment from my side... probably I should use buttons for the sidebar, but in this case(since we don't have any functionality)
-I used div with span-s inside. -->

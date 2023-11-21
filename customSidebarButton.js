@@ -4,7 +4,6 @@ class AppSidebarButton extends HTMLElement {
     this.attachShadow({ mode: "open" });
     this.text = this.getAttribute("text");
     this.unreadCount = this.getAttribute("unreadCount");
-    this.icon = this.innerHTML.trim();
   }
 
   connectedCallback() {
@@ -12,6 +11,10 @@ class AppSidebarButton extends HTMLElement {
   }
 
   render() {
+    const fontWeight =
+      this.unreadCount > 0 || this.classList.contains("active")
+        ? "bold"
+        : "normal";
     this.shadowRoot.innerHTML = `
       <style>
         .sidebar__option {
@@ -25,7 +28,7 @@ class AppSidebarButton extends HTMLElement {
 
         .sidebar__option .text {
           margin-left: 1rem;
-          font-weight: bold;
+          font-weight: ${fontWeight};
         }
 
         .unread-count {
@@ -33,11 +36,17 @@ class AppSidebarButton extends HTMLElement {
           margin-left: 6rem;
         }
 
+        .sidebar__option.active {
+          background-color: #d3e3fd;
+        }
+
         .sidebar__option:hover:not(.active) {
           background-color: #eaeaed;
         }
       </style>
-      <div class="sidebar__option">
+      <div class="sidebar__option ${
+        this.classList.contains("active") ? "active" : ""
+      }">
         <slot name="icon"></slot>
         <span class="text">${this.text}</span>
         ${
